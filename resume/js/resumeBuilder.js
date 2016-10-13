@@ -15,7 +15,7 @@ var bio = {
 "age":25,
 "contacts": {
     "email": "nathanevass@gmail.com",
-    "mobile": "413-567-2427",
+    "mobile": "413-374-9381",
     "location": "Longmeadow, MA",
     "github" : "Th3Nathan"},
 
@@ -66,14 +66,16 @@ var education = {
 
     "onlineCourses": [ {
         "title": "Introduction to html/css",
-        "school": "Udacity",
         "dates" : 2016,
         "url" : "www.udacity.com"
     }, {
         "title": "Building Responsive Web Sites",
-        "school": "Udacity",
         "dates" : 2016,
         "url" : "www.udacity.com"
+    }, {
+        "title": "Responsive Images"
+    }, {
+        "title": "Object Oriented Javascript"
     }]
 }
 
@@ -92,22 +94,23 @@ $("#education").append(fMajors);
 $("#education").append(HTMLonlineClasses);
 var fTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[0].title);
 $("#education").append(fTitle);
-var fTitle = HTMLonlineSchool.replace("%data%", education.onlineCourses[0].school);
-$("#education").append(fTitle);
 
 var fTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[1].title);
 $("#education").append(fTitle);
-var fTitle = HTMLonlineSchool.replace("%data%", education.onlineCourses[1].school);
+
+
+var fTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[2].title);
 $("#education").append(fTitle);
 
-
+var fTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[3].title);
+$("#education").append(fTitle);
 
 var projects = {
 
     "Dev" : [
     {"title" : "Sample Portfolio Page",
      "dates" : 2016,
-     "description" : "Practicing site layout",
+     "description" : "My first webpage",
      "images" : ["images/Portfolio1.jpg"]
      },
      {
@@ -153,17 +156,16 @@ $(document).click(function(loc) {
 var work = {
     "jobs" : [
     {"title" : "Assistant Language Teacher",
-     "description" : "Taught English in all grades in three Japanese public schools",
+     "description" : "English teacher and curriculum consultant. Worked in three public schools in Japan.",
       "employer" : "JET Program",
-      "location" : "Hida, Japan",
+      "location" : "Hida Kamioka, Japan",
       "dates" : "August 2015 - August 2016"},
      {"title" : "Direct Care Worker",
-     "description" : "Developed and implemented strategies for helping people with Intellectual Disabilities",
-      "employer" : "May Institute and BCark",
+     "description" : "Developed and implemented strategies for serving people with Intellectual Disabilities",
+      "employer" : "May Institute and BCarc",
       "location" : "Springfield, Massachusetts",
       "dates" : "March 2015 - August 2015"}
     ]
-
 }
 
 function displayWork(){
