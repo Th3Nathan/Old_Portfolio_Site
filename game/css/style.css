@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+    background-color:gray;
+    font-family: 'Bungee Inline', cursive;
+}
+
+#scoreboard {
+	margin-bottom:-30px;
+}
+
+.modal {
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:1;
+	right:0;
+	top:0;
+	background-color: rgba(0,20,50,1); 
+}
+
+.modal-box {
+    background-color: lightblue;
+    margin: auto; 
+    margin-top: 5%;
+    height:80%;
+    padding: 20px;
+    width: 40%; 
+}
+
+ul {
+	list-style-type:none;
+	font-size:1.25em;
+	color:red;
+	text-align:left;
+}
+
+@media screen and (max-width:1150px){
+	.modal-box{
+		padding:0;
+		width:90%;
+	}
+	ul {
+		text-align:center;
+	}
+}
