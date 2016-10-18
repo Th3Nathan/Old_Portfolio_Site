@@ -21,7 +21,7 @@ var bio = {
 
 "biopic": "images/NathanMountain.jpg",
 "skills": [
-    "html", "css", "javascript", "Japanese", "violin", "teaching"],
+    "HTML", "CSS", "Javascript", "Japanese", "violin", "teaching"],
 }
 
 var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
