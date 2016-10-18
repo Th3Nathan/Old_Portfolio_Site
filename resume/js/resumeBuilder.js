@@ -21,7 +21,7 @@ var bio = {
 
 "biopic": "images/NathanMountain.jpg",
 "skills": [
-    "html", "css", "javascript", "Japanese", "violin", "coffee"],
+    "html", "css", "javascript", "Japanese", "violin", "teaching"],
 }
 
 var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -110,14 +110,24 @@ var projects = {
     "Dev" : [
     {"title" : "Sample Portfolio Page",
      "dates" : 2016,
-     "description" : "My first webpage",
+     "description" : "This is my first project, a simple webpage buile using a grid framework I created.",
      "images" : ["images/Portfolio1.jpg"]
      },
      {
         "title" : "Break Point Format",
         "dates" : 2016,
-        "description" : "Used media queries to make page resize gracefully on different screens, added hamburger menu",
-        "images" : ["images/Breakpoint1.png","images/Breakpoint2.png"]
+        "description" : "I used my knowledge of responsive design to change how a given webpage reacts to different screen sizes using media queries. I also used javascript to add a hamburger menu.",
+        "images" : ["images/Breakpoint1.png"]
+     },
+     {"title" : "Responsive Image Serving",
+     "dates" : 2016,
+     "description" : "I used Grunt to optimize images for screens with different sizes and pixel densities. Grunt is very effective, and interesting to use because you have to get down and dirty with the command line. I then used the source tag, srcset, and media queries to help the browser know which image to download for a given screen type.",
+     "images" : ["images/blog.png"]
+     },
+     {"title" : "Frogger Clone",
+     "dates" : 2016,
+     "description" : "I built this game using Javascript. With a supplied game engine and art assets, I wrote the main code for the game using object oriented javascript. I really enjoyed the process of going from not understanding the code at all to becomming very confident with building and improving the game. This is a work in progress.",
+     "images" : ["images/game.png"]
      }
      ]
 
@@ -125,7 +135,7 @@ var projects = {
 projects.display = function(){
 
 
-for (project in projects.Dev){
+for (var project = projects.Dev.length - 1; project >= 0; project--){
 $("#projects").append('<div class="project-entry">');
 var fTitle = HTMLprojectTitle.replace("%data%", projects.Dev[project].title);
 $("#projects").append(fTitle);
@@ -138,16 +148,13 @@ for (var i = 0; i<projects.Dev[project].images.length; i++){
 var fImage = HTMLprojectImage.replace("%data%", projects.Dev[project].images[i]);
 $("#projects").append(fImage);
 }
-
-
-
 }
 }
 
 
 projects.display();
 
-
+//logs the location of mouse clicks in the console
 $(document).click(function(loc) {
   console.log(loc.pageX , "and" , loc.pageY);
 });
@@ -155,16 +162,22 @@ $(document).click(function(loc) {
 
 var work = {
     "jobs" : [
-    {"title" : "Assistant Language Teacher",
-     "description" : "English teacher and curriculum consultant. Worked in three public schools in Japan.",
-      "employer" : "JET Program",
+    {"title" : "Japan Exchange Teaching (JET) Program: Assistant Language Teacher",
+     "description" : "I taught English and collaborated with teachers to design the English curriculum in three schools in rural Japan. I was immersed in the Japanese language and culture and adapted quickly. It was fun and rewarding! I worked hard to improve my skills by organizing a training workshop in the area's model English program, and volunteering at private and non-profit English schools in the community. I had a very positive impact on my students. I helped one of my students win a statewide speech competition. I was selected to be a model teacher for several curriculum developments workshops. I contributed my insights in both the English and Japanese languages. At the end of my term, I was specifically requested to orient the new teachers. On July 10, 2016, I was appointed a JET Kizuna Ambassador by the Minister for Internal Affairs and Communications of Japan. ",
       "location" : "Hida Kamioka, Japan",
       "dates" : "August 2015 - August 2016"},
-     {"title" : "Direct Care Worker",
-     "description" : "Developed and implemented strategies for serving people with Intellectual Disabilities",
-      "employer" : "May Institute and BCarc",
+     {"title" : "May Institute: Program Specialist",
+     "description" : "I worked directly with individuals with intellectual disabilities including traumatic brain injuries. My job was to provide support by implementing and assisting in the development of their services. This included facilitating healthy life choices, providing personal care, supporting community involvement and finding fulfillment. I also handled high intensity situations and medical emergencies. Seeking additional responsibilities, I obtained a Medication Administration Program certification and performed duties without error.",
       "location" : "Springfield, Massachusetts",
-      "dates" : "March 2015 - August 2015"}
+      "dates" : "March 2015 - August 2015"},
+     {"title" : "UMass Computer Science Computational Facilities: Office Assistant",
+      "description" : "My main responsibility was to give feedback and suggestions to improve all Computer Science related web resources and organize my suggestions in a wiki page. Many of the resources were documents about technology that was new to me, such as command line based programs and computing resources. I completely redid the bulletin boards, contributing to efficient communication for students and staff. I also inventoried the computing machines in the facility. ",
+      "dates" : "March 2014 - May 2014",
+      "location" : "Amherst, Massachusetts"},
+     {"title" : "UMass Residence Hall Security: Security Monitor",
+      "description" : "I worked as a Security Monitor for three years during my studies at UMass Amherst. I was responsible for securing the safety of residence halls and reporting any safety issues to emergency services. I verified the identity of people entering the residence hall, and documented guest information for law enforcement use. I welcomed new families to UMass as a move-in coordinator, and helped coordinate parking during graduation. ",
+      "dates" : "October 2011 - March 2014",
+      "location" : "Amherst, Massachusetts"}
     ]
 }
 
@@ -172,8 +185,7 @@ function displayWork(){
     if (work.jobs.length > 0) {
     $("#workExperience").append(HTMLworkStart);
     for (i in work.jobs){
-    var fEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-    $("#workExperience").append(fEmployer);
+    
     var fTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
     $("#workExperience").append(fTitle);
     var fWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
