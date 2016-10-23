@@ -175,7 +175,7 @@ var Enemy = function(yStart, xStart) {
             snd.load();
             snd.play();
             player.toStart();
-            addPoints(-30);
+        
             handleLives();
 
             };    
