@@ -4,6 +4,13 @@ body {
     font-family: 'Bungee Inline', cursive;
 }
 
+
+#hiscore{
+	margin-left:25%;
+	text-align:left;
+	margin-bottom:-60px;
+}
+
 #scoreboard {
 	margin-bottom:-30px;
 }
@@ -26,6 +33,32 @@ body {
     padding: 20px;
     width: 40%; 
 }
+
+#lifebox {
+	display:flex;
+	margin-left:25%;
+	margin-bottom:-65px;
+	
+}
+
+#life1{
+	width:50px;
+	
+}
+
+#life2{
+	width:50px;
+}
+
+#life3{
+	width:50px;
+}
+
+img {
+	width:inherit;
+}
+
+
 
 ul {
 	list-style-type:none;
