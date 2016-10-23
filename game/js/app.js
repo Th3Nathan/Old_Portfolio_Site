@@ -19,20 +19,23 @@ var playerCurrentSprite = 0;
 var gems = ['images/Gem Blue.png', 'images/Gem Orange.png', 'images/Gem Green.png'];
 var currentGemColor = 0;
 
-
+//Used to display score on screen
 var score = 0;
 var hiscore = 0;
 
+//Each life div contains an image of a heart
 var lives = 3;
 var life1 = document.getElementById('life1');
 var life2 = document.getElementById('life2');
 var life3 = document.getElementById('life3');
+
 //sound effects
 var snd = new Audio("sounds/hit.mp3"); 
 var splash = new Audio("sounds/Splash.mp3");
 var ding = new Audio("sounds/ding.mp3");
 
 
+//Checks how many lives and either removes life or resets the game
 var handleLives = function(){
     if(lives == 1){
         life3.style.display = 'none';
@@ -42,12 +45,9 @@ var handleLives = function(){
            life1.style.display = 'block';
            life2.style.display = 'block';
            life3.style.display = 'block';
-           document.getElementById("scoreboard").innerHTML = ("Score: " + score);
-           
-            
-
-},200); 
-            } 
+           document.getElementById("scoreboard").innerHTML = ("Score: " + score);              
+        },200); 
+    } 
 
     if (lives == 2){
         life2.style.display = 'none';
@@ -57,7 +57,6 @@ var handleLives = function(){
     if (lives == 3){
         life1.style.display = 'none'; 
         lives --;
-
     }
 }
 
@@ -132,14 +131,9 @@ var Gem = function(){
 
         if (player.y == -10){
             var that = this;
-                        setTimeout(function(){
-
-           that.reset();
-           
-            
-
-},200); 
-            
+            setTimeout(function(){
+            that.reset();     
+            },200); 
         };
     };
 
@@ -164,7 +158,7 @@ var Enemy = function(yStart, xStart) {
     // Parameter: dt, a time delta between ticks
     Enemy.prototype.update = function(dt) {
     if (this.x > 800){
-        this.speed = Math.floor(Math.random() * 200 + 300);
+        this.speed = Math.floor(Math.random() * 200 + 300 + (score/5));
         this.x = -100;}
      else {
         this.x += this.speed * dt;
@@ -175,7 +169,7 @@ var Enemy = function(yStart, xStart) {
             snd.load();
             snd.play();
             player.toStart();
-        
+            addPoints(-30);
             handleLives();
 
             };    
@@ -218,12 +212,8 @@ var Player = function(){
             addPoints(5);
             player.y = -9; 
             setTimeout(function(){
-
-            player.toStart();
-            
-
-},200); 
-            
+            player.toStart();           
+            },200);           
         };
     };
 
