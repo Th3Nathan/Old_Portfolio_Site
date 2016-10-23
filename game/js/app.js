@@ -21,19 +21,62 @@ var currentGemColor = 0;
 
 
 var score = 0;
+var hiscore = 0;
 
+var lives = 3;
+var life1 = document.getElementById('life1');
+var life2 = document.getElementById('life2');
+var life3 = document.getElementById('life3');
 //sound effects
 var snd = new Audio("sounds/hit.mp3"); 
 var splash = new Audio("sounds/Splash.mp3");
 var ding = new Audio("sounds/ding.mp3");
 
 
+var handleLives = function(){
+    if(lives == 1){
+        life3.style.display = 'none';
+    setTimeout(function(){
+           lives = 3;
+           score = 0;
+           life1.style.display = 'block';
+           life2.style.display = 'block';
+           life3.style.display = 'block';
+           document.getElementById("scoreboard").innerHTML = ("Score: " + score);
+           
+            
+
+},200); 
+            } 
+
+    if (lives == 2){
+        life2.style.display = 'none';
+        lives --;
+    }
+
+    if (lives == 3){
+        life1.style.display = 'none'; 
+        lives --;
+
+    }
+}
+
+
+var updateHiscore = function(){
+    if (score >= hiscore){
+        hiscore = score;
+        document.getElementById("hiscore").innerHTML = ("Hiscore: " + hiscore);
+    }
+}
 
 var addPoints = function(points){
     this.addition = points;
     score += addition; 
     document.getElementById("scoreboard").innerHTML = ("Score: " + score);
+    updateHiscore();
 };
+
+
 
 
 //Constructor: creates Gem at random tile with random color
@@ -88,7 +131,15 @@ var Gem = function(){
         };
 
         if (player.y == -10){
-            this.reset();
+            var that = this;
+                        setTimeout(function(){
+
+           that.reset();
+           
+            
+
+},200); 
+            
         };
     };
 
@@ -125,6 +176,7 @@ var Enemy = function(yStart, xStart) {
             snd.play();
             player.toStart();
             addPoints(-30);
+            handleLives();
 
             };    
         };
@@ -163,7 +215,15 @@ var Player = function(){
         if (player.y == -10){
             splash.load();
             splash.play();
-            this.toStart(); addPoints(5);
+            addPoints(5);
+            player.y = -9; 
+            setTimeout(function(){
+
+            player.toStart();
+            
+
+},200); 
+            
         };
     };
 
