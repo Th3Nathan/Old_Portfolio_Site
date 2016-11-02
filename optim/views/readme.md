@@ -4,6 +4,7 @@ Optimized main.js
 
 I moved the first four lines of code out of the for loop, so it is only necessary to read the DOM once rather than in every loop. I store elements with the class randomPizzaContainer in a containers object so that all DOM reading is done before the for loop starts. The for loops sole function now is to write to the DOM and change the width of pizza containers. 
 
+
 `function changePizzaSizes(size) {
    var containers = document.getElementsByClassName("randomPizzaContainer");
     var dx = determineDx(containers[1], size);
@@ -16,6 +17,8 @@ I moved the first four lines of code out of the for loop, so it is only necessar
 
 Here I similarly seperated reading and writing operations by taking the scrollTop out of the loop so it only need to run once rather than whenever each background pizza is moved. 
 
+
+
 `
   var cachedScroll = document.body.scrollTop;
   var items = document.querySelectorAll('.mover');
@@ -24,7 +27,12 @@ Here I similarly seperated reading and writing operations by taking the scrollTo
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 `
-Originally, 200 moving pizzas were created, but only about 40 will ever be displayed. I changed it to 40 to trim unnecessary processing. `
+
+
+Originally, 200 moving pizzas were created, but only about 40 will ever be displayed. I changed it to 40 to trim unnecessary processing.
+
+
+`
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
