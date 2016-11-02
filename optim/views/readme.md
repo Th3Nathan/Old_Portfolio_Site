@@ -19,20 +19,20 @@ Here I similarly seperated reading and writing operations by taking the scrollTo
 
 
 
-`
+```
   var cachedScroll = document.body.scrollTop;
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((cachedScroll / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
-`
+```
 
 
 Originally, 200 moving pizzas were created, but only about 40 will ever be displayed. I changed it to 40 to trim unnecessary processing.
 
 
-`
+```
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
@@ -48,4 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   updatePositions();
 });
-`
+```
