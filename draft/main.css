@@ -1,0 +1,179 @@
+* {
+	/*outline:1px solid red !important;*/
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Smythe', cursive;
+	background-color:#b3ccff;
+	}
+
+header {
+	display:flex;
+	height:30vw;
+	
+}	
+
+#logo {
+	width:25%;
+	background-image:url(http://placekitten.com/100/100);
+	background-repeat:no-repeat;
+	background-size:100%;
+	margin:4vw;
+}
+
+#header_text {
+	width:75%;
+	font-size:4.5vw;
+	margin-top:10vw;
+}
+
+#menu_box {
+	display:none;
+}
+
+.mobile_list {
+	width:100%;
+	margin-left:2vw;
+	margin-right:2vw;
+	list-style-type:none;
+	display:flex;
+	
+}
+
+.mobile_list.mobile_footer {
+	margin-bottom:2vw;
+}
+
+li {
+
+	background-image:url(frame.jpg);
+	background-size:100%;
+	background-repeat:no-repeat;
+	font-size:6vw;
+	width:21vw;
+	text-align:center;
+	line-height:9vw;
+	margin-right:1vw;
+	margin-left:1vw;
+	
+
+}
+
+#mobile_photos {
+	width:90%;
+	margin-right:5vw;
+	margin-left:5vw;
+}
+
+#mobile_photos img {
+	width:100%;
+	padding:3vw;
+}
+
+
+
+#slideshow {
+  display:none;
+  position:relative;
+  width:70%;
+  margin-right:4vw;
+  margin-left:4vw;
+  margin-top:4vw;
+   }
+#slideshow img {
+	position:absolute;
+	max-width:100%;
+	}
+
+
+.hide {
+	display:none;
+}
+
+@media only screen and (min-width: 1100px) {
+	#mobile_photos {
+		display:none;
+	}
+	.mobile_list {
+		display:none;
+	}
+	body{
+		padding-left:17vw;
+		padding-right:17vw;
+	}
+	header {
+		height:8vw;
+		margin-top:5vw;
+		
+
+	}
+	#logo {
+		width:10%;
+		height:6.5vw;
+		margin:1vw;
+	}
+	#header_text {
+		width:30%;
+
+		font-size:1.5vw;
+		margin-top:2.5vw;
+	}
+
+	#menu_box {
+		display:flex;
+		width:60%;
+		margin-top:4.5%;
+
+	}
+
+	.menu_item {
+	background-image:url(frame.jpg);
+	background-size:100%;
+	background-repeat:no-repeat;
+	font-size:2vw;
+	width:25%;
+	text-align:center;
+	line-height:4vw;
+	margin:.5vw;
+	position:relative;
+	}
+
+	.camera {
+		width:2.5vw;
+		position:absolute;
+		top:-3.5vw;
+		right:3vw;
+
+	}
+
+	ul {
+		width:100%;
+		z-index:1;
+		position:absolute;
+
+	}
+
+	li {
+		list-style-type:none;
+		margin:0;
+		width:inherit;
+		background-image:none;
+		font-size:1.7vw;
+		background-color:white;
+		line-height:3vw;
+	
+	}
+
+	#slideshow {
+		display:block;
+		margin-top:4vw;
+		width:95%;
+
+	}
+
+	#slideshow img {
+		width:100%;
+		left:-2vw;
+		margin-bottom:4vw;
+	}
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Akari photography portfolio homepage">
+    <meta name="author" content="Akari Hosokawa and Nathan Vass">
+    <title>Akari's Photography</title>
+    <link href = "main.css" rel = "stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Smythe" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+    <script>
+
+
+    </script>
+  </head>
+  <body>
+  	<header>
+  		<div id = "logo">
+  			
+  		</div>
+  		<div id = "header_text">
+  			<h2>Portrait, Art <br>Fashion, Wedding, etc....</h2>
+  		</div>
+  		<div id = "menu_box">
+  			<div class="menu_item">About
+  				<span class="hide">
+  					<img class="camera" src="camera.png">
+  				</span>
+  			</div>
+
+  			<div class="menu_item">Portfolio
+  				<span class="hide">
+  					<img class="camera" src="camera.png">
+  					<ul id="portfolio_list">
+  						<li>Wedding</li>
+  						<li>Portrait</li>
+  						<li>Music</li>
+  						<li>Business</li>
+  						<li>Nature</li>
+  						<li>Newborn</li>
+  						<li>Engaged</li>
+  						<li>Graduation</li>
+  						<li>Art</li>
+  						<li>Others</li>
+  					</ul>
+  				</span>
+  			</div>
+  			<div class="menu_item">Inquire
+  			  	<span class="hide">
+  					<img class="camera" src="camera.png">
+  				</span>
+  			</div>
+  			<div class="menu_item">Home
+  			  	<span class="hide">
+  					<img class="camera" src="camera.png">
+  				</span>
+  			</div>
+  		</div>	
+
+  	</header>
+
+
+  	
+  		<ul class = "mobile_list">
+  			<li class = "mobile_item">About</li>
+  			<li class = "mobile_item">Portfolio</li>
+  			<li class = "mobile_item">Inquire</li>
+  			<li class = "mobile_item">Home</li>
+  		</ul>	
+  		<div id ="mobile_photos">
+  		  	<img src="mobilePhotos/kyoto5.jpg">
+  			<img src="mobilePhotos/web2.jpg">
+  			<img src="mobilePhotos/web3.jpg">
+  			<img src="mobilePhotos/modeling kelsy4.jpg">
+  			<img src="mobilePhotos/web4.jpg">
+  			<img src="mobilePhotos/web8.jpg">
+  			<img src="mobilePhotos/modeling kelsy3.jpg">
+  			<img src="mobilePhotos/web9.jpg">
+  			<img src="mobilePhotos/LA2.jpg">
+  			<img src="mobilePhotos/web1.jpg">
+
+  		</div>
+  		  <ul class = "mobile_list mobile_footer">
+  			<li class = "mobile_item">About</li>
+  			<li class = "mobile_item">Portfolio</li>
+  			<li class = "mobile_item">Inquire</li>
+  			<li class = "mobile_item">Home</li>
+  		</ul>	
+
+
+
+
+
+  		<div id="slideshow">
+  			<img src="mobilePhotos/kyoto5.jpg">
+  			<img src="mobilePhotos/LA2.jpg">
+  			<img src="mobilePhotos/modeling kelsy4.jpg">
+  			<img src="mobilePhotos/web1.jpg">
+  			<img src="mobilePhotos/web2.jpg">
+  			<img src="mobilePhotos/web3.jpg">
+  			<img src="mobilePhotos/web4.jpg">
+  			<img src="mobilePhotos/web8.jpg">
+  			<img src="mobilePhotos/web9.jpg">
+  		</div>
+
+  
+
+  <script>
+  	$(function(){
+    $('#slideshow img:gt(0)').hide();
+    setInterval(function(){
+      $('#slideshow :first-child').fadeOut()
+         .next('img').fadeIn()
+         .end().appendTo('#slideshow');}, 
+      3000);
+});
+
+    	$('.menu_item').hover( function() {
+  		$(this).children('.hide').toggle();
+		  });
+    	
+    	 $('.column').hover( function() {
+  		$(this).children('.hide').toggle();
+		  });
+
+  </script>
+  </body>
+</html>  
+  
