@@ -1,7 +1,8 @@
-This is my portfolio page, everything on it is a work in progress. 
-
-Next time I work on the page, I will optimize it by removing JavaScript blocks, minifying files, and allowing the browser to chose from several image files. 
 
 The pages Th3Nathan.github.io/resume and Th3Nathan.github.io/game were built as projects for classes on Udacity, an online learning platform. 
 
-The Th3Nathan.github.io/akari was made to demonstrate to a friend how a photography portfolio page for her might look. Code is functional but extremely messy. Currently planning that site.    
+The Th3Nathan.github.io/akari was made to demonstrate to a friend how a photography portfolio page for her might look. Page is unresponsive.
+
+Th3nathan.github.io/draft Is based on my friend's design. It is just a draft, waiting for more information before I proceed. It is responsive and uses viewport units for sizing as much as possible. 
+
+Th3nathan.github.io/optim/views.pizza.js Had severe jank in the Javascript. More detail on changes in the folder. In the future, will use pull requests to update code as it would have displayed the changes I made much better. 
