@@ -62,23 +62,23 @@
 
 
   	
-  		<ul class = "mobile_list">
+  		<ul class = "mobile_list" id ="fix">
   			<li class = "mobile_item">About</li>
   			<li class = "mobile_item">Portfolio</li>
   			<li class = "mobile_item">Inquire</li>
   			<li class = "mobile_item">Home</li>
   		</ul>	
   		<div id ="mobile_photos">
-  		  	<img src="mobilePhotos/kyoto5.jpg">
-  			<img src="mobilePhotos/web2.jpg">
-  			<img src="mobilePhotos/web3.jpg">
-  			<img src="mobilePhotos/modeling kelsy4.jpg">
-  			<img src="mobilePhotos/web4.jpg">
-  			<img src="mobilePhotos/web8.jpg">
-  			<img src="mobilePhotos/modeling kelsy3.jpg">
-  			<img src="mobilePhotos/web9.jpg">
-  			<img src="mobilePhotos/LA2.jpg">
-  			<img src="mobilePhotos/web1.jpg">
+  		  	<img src="photos/kyoto5.jpg">
+  			<img src="photos/web2.jpg">
+  			<img src="photos/web3.jpg">
+  			<img src="photos/modeling kelsy4.jpg">
+  			<img src="photos/web4.jpg">
+  			<img src="photos/web8.jpg">
+  			<img src="photos/modeling kelsy3.jpg">
+  			<img src="photos/web9.jpg">
+  			<img src="photos/LA2.jpg">
+  			<img src="photos/web1.jpg">
 
   		</div>
   		  <ul class = "mobile_list mobile_footer">
@@ -93,15 +93,15 @@
 
 
   		<div id="slideshow">
-  			<img src="mobilePhotos/kyoto5.jpg">
-  			<img src="mobilePhotos/LA2.jpg">
-  			<img src="mobilePhotos/modeling kelsy4.jpg">
-  			<img src="mobilePhotos/web1.jpg">
-  			<img src="mobilePhotos/web2.jpg">
-  			<img src="mobilePhotos/web3.jpg">
-  			<img src="mobilePhotos/web4.jpg">
-  			<img src="mobilePhotos/web8.jpg">
-  			<img src="mobilePhotos/web9.jpg">
+  			<img src="photos/kyoto5.jpg">
+  			<img src="photos/LA2.jpg">
+  			<img src="photos/modeling kelsy4.jpg">
+  			<img src="photos/web1.jpg">
+  			<img src="photos/web2.jpg">
+  			<img src="photos/web3.jpg">
+  			<img src="photos/web4.jpg">
+  			<img src="photos/web8.jpg">
+  			<img src="photos/web9.jpg">
   		</div>
 
   
@@ -123,6 +123,17 @@
     	 $('.column').hover( function() {
   		$(this).children('.hide').toggle();
 		  });
+
+
+var elementPosition = $('#fix').offset();
+
+$(window).scroll(function(){
+        if($(window).scrollTop() > elementPosition.top){
+              $('#fix').css('position','fixed').css('top','0');
+        } else {
+            $('#fix').css('position','static');
+        }    
+});
 
   </script>
   </body>
