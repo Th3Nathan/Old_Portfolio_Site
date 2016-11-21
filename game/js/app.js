@@ -1,13 +1,10 @@
 
-
-
-
 //Global Variables
 
 //Arrays of possible X and Y values
 var enemyY = [60, 140, 225];
-var playerY = [-10, 60, 140, 225, 300, 400];
-var playerX = [0, 100, 200, 300, 405];
+var allY = [-10, 60, 140, 225, 300, 400];
+var allX = [0, 100, 200, 300, 405];
 
 //Refers to X and Y value in above arrays
 var playerCurrentY = 4;
@@ -75,51 +72,39 @@ var addPoints = function(points){
     updateHiscore();
 };
 
+// factory
+const factory = {
+
+    x : allX[Math.floor(Math.random() * 5)],
+    y :  enemyY[Math.floor(Math.random() * 3)],
+    sprite :  gems[Math.floor(Math.random() * 3)],
 
 
+//causes the gem to be set to a random location and color, called if player reaches water
+    reset(){ 
+    this.x = allX[Math.floor(Math.random() * 5)];
+    this.y = enemyY[Math.floor(Math.random() * 3)];
+    this.sprite =  gems[Math.floor(Math.random() * 3)];
+    },
 
-//Constructor: creates Gem at random tile with random color
-var Gem = function(){
-    this.x = this.getX();
-    this.y = this.getY();
-    this.chooseColor();
-};
-    
-    //selects a random X value from an array of x values at the center of each tile
-    Gem.prototype.getX = function(){
-        return playerX[Math.floor(Math.random() * 5)];
-    };
-
-    //seleces a random Y value from an array of y values at the center of each tile
-    Gem.prototype.getY = function(){
-        return enemyY[Math.floor(Math.random() * 3)];
-    };
-
-    //causes the gem to be set to a random location and color, called if player reaches water
-    Gem.prototype.reset = function(){ 
-        this.x = this.getX();
-        this.y = this.getY();
-        this.chooseColor(); 
-    };
-
-    //selects color of gem from three possiblities
-    Gem.prototype.chooseColor = function(){
+     //selects color of gem from three possiblities
+    chooseColor(){
         this.sprite = gems[Math.floor(Math.random() * 3)];
-    };
+    },
 
     //moves the gem off the screen
-    Gem.prototype.hide = function(){
+    hide(){
         this.x = -500;
         this.y = -500;
-    };
+    },
 
     //draws the gem
-    Gem.prototype.render = function(){
+    render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    };
+    },
 
     //this constantly running method adds points if player location is same as gem location
-    Gem.prototype.update = function(){
+    update(){
         if ((player.x == this.x) && (player.y == this.y)){
             ding.load();
             ding.play();
@@ -135,9 +120,13 @@ var Gem = function(){
             that.reset();     
             },200); 
         };
-    };
+    }
 
+  }
 
+function factoryGem () {
+  return Object.create(factory);
+}
 
 
 //Returns random starting position for Enemies 
@@ -156,7 +145,7 @@ var Enemy = function(yStart, xStart) {
 
     // Update the enemy's position continuously 
     // Parameter: dt, a time delta between ticks
-    Enemy.prototype.update = function(dt) {
+    Enemy.factorytype.update = function(dt) {
     if (this.x > 800){
         this.speed = Math.floor(Math.random() * 200 + 300 + (score/5));
         this.x = -100;}
@@ -169,6 +158,7 @@ var Enemy = function(yStart, xStart) {
             snd.load();
             snd.play();
             player.toStart();
+            addPoints(-30);
             handleLives();
 
             };    
@@ -176,7 +166,7 @@ var Enemy = function(yStart, xStart) {
     };
 
     // Draw the enemy on the screen
-    Enemy.prototype.render = function() {
+    Enemy.factorytype.render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
        
     };
@@ -190,7 +180,7 @@ var Player = function(){
 };
 
     //Cycles through the array of possible avatars, then changes to it
-    Player.prototype.changeSprite = function(){
+    Player.factorytype.changeSprite = function(){
             if(playerCurrentSprite < 4){
                 playerCurrentSprite++;
             }
@@ -199,12 +189,12 @@ var Player = function(){
     };
 
     //Moves player to starting position
-    Player.prototype.toStart = function(){
-        this.x = 200; this.y = playerY[4]; playerCurrentY = 4; playerCurrentX = 2;
+    Player.factorytype.toStart = function(){
+        this.x = 200; this.y = allY[4]; playerCurrentY = 4; playerCurrentX = 2;
     };
 
     //Adds ten points if player reaches the water
-    Player.prototype.update = function(dt){
+    Player.factorytype.update = function(dt){
         if (player.y == -10){
             splash.load();
             splash.play();
@@ -217,17 +207,17 @@ var Player = function(){
     };
 
     //draws player
-    Player.prototype.render = function(){
+    Player.factorytype.render = function(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
 
     //moves player based on arrow input, changes player image if spacebar is pressed
-    Player.prototype.handleInput = function(code){
+    Player.factorytype.handleInput = function(code){
     switch (code){
-        case 'up': if (playerCurrentY > 0) {this.y = playerY[playerCurrentY - 1]; playerCurrentY --;} break;
-        case 'down': if (playerCurrentY < 5) {this.y = playerY[playerCurrentY + 1]; playerCurrentY ++;} break;
-        case 'right': if (playerCurrentX < 4) {this.x = playerX[playerCurrentX + 1]; playerCurrentX ++;} break;
-        case 'left': if (playerCurrentX > 0) {this.x = playerX[playerCurrentX - 1]; playerCurrentX --;} break;
+        case 'up': if (playerCurrentY > 0) {this.y = allY[playerCurrentY - 1]; playerCurrentY --;} break;
+        case 'down': if (playerCurrentY < 5) {this.y = allY[playerCurrentY + 1]; playerCurrentY ++;} break;
+        case 'right': if (playerCurrentX < 4) {this.x = allX[playerCurrentX + 1]; playerCurrentX ++;} break;
+        case 'left': if (playerCurrentX > 0) {this.x = allX[playerCurrentX - 1]; playerCurrentX --;} break;
         case 'space': this.changeSprite(); break;
         };
     };
@@ -251,8 +241,10 @@ allEnemies.push(bug2);
 
 var allGems = [];
 
-var gem2 = new Gem();
-var gem = new Gem();
+const gem = factoryGem();
+const gem2 = factoryGem();
+
+
 
 allGems.push(gem);
 allGems.push(gem2);
@@ -271,3 +263,5 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
