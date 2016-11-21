@@ -1,4 +1,5 @@
 
+
 //Global Variables
 
 //Arrays of possible X and Y values
@@ -145,7 +146,7 @@ var Enemy = function(yStart, xStart) {
 
     // Update the enemy's position continuously 
     // Parameter: dt, a time delta between ticks
-    Enemy.factorytype.update = function(dt) {
+    Enemy.prototype.update = function(dt) {
     if (this.x > 800){
         this.speed = Math.floor(Math.random() * 200 + 300 + (score/5));
         this.x = -100;}
@@ -166,7 +167,7 @@ var Enemy = function(yStart, xStart) {
     };
 
     // Draw the enemy on the screen
-    Enemy.factorytype.render = function() {
+    Enemy.prototype.render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
        
     };
@@ -180,7 +181,7 @@ var Player = function(){
 };
 
     //Cycles through the array of possible avatars, then changes to it
-    Player.factorytype.changeSprite = function(){
+    Player.prototype.changeSprite = function(){
             if(playerCurrentSprite < 4){
                 playerCurrentSprite++;
             }
@@ -189,12 +190,12 @@ var Player = function(){
     };
 
     //Moves player to starting position
-    Player.factorytype.toStart = function(){
+    Player.prototype.toStart = function(){
         this.x = 200; this.y = allY[4]; playerCurrentY = 4; playerCurrentX = 2;
     };
 
     //Adds ten points if player reaches the water
-    Player.factorytype.update = function(dt){
+    Player.prototype.update = function(dt){
         if (player.y == -10){
             splash.load();
             splash.play();
@@ -207,12 +208,12 @@ var Player = function(){
     };
 
     //draws player
-    Player.factorytype.render = function(){
+    Player.prototype.render = function(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
 
     //moves player based on arrow input, changes player image if spacebar is pressed
-    Player.factorytype.handleInput = function(code){
+    Player.prototype.handleInput = function(code){
     switch (code){
         case 'up': if (playerCurrentY > 0) {this.y = allY[playerCurrentY - 1]; playerCurrentY --;} break;
         case 'down': if (playerCurrentY < 5) {this.y = allY[playerCurrentY + 1]; playerCurrentY ++;} break;
@@ -263,5 +264,6 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
 
 
