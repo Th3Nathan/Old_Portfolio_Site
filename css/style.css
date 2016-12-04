@@ -203,7 +203,7 @@ input:not(:focus):valid ~ .floating-label{
   outline:none !important;
   font-size: 35px;
   width:90%;
-  height: 50px;
+  height: 60px;
   background-color:#EEE;
   color:#888;
   display:flex;
