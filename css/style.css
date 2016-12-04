@@ -210,6 +210,8 @@ input:not(:focus):valid ~ .floating-label{
   border:none;
   border-bottom: 3px solid #BBB;
   position:relative;
+  padding:0px !important;
+  margin:0px !important;
 }
 
 .floating-label {
@@ -257,6 +259,7 @@ textarea:not(:focus):valid ~ .floating-label2{
 
 .message-box{
   height:300px;
+  padding-top:10px;
 }
 
 .floating-label2 {
