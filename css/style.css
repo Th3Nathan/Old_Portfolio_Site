@@ -191,7 +191,7 @@ ul.nav a:hover {
 
 input:focus ~ .floating-label,
 input:not(:focus):valid ~ .floating-label{
-  top: -70px;
+  top: -75px;
   bottom: 0px;
   left: 0px;
   font-size: 20px;
@@ -203,13 +203,14 @@ input:not(:focus):valid ~ .floating-label{
   outline:none !important;
   font-size: 35px;
   width:90%;
-  height: 60px;
+  height: 65px;
   background-color:#EEE;
   color:#888;
   display:flex;
   border:none;
   border-bottom: 3px solid #BBB;
- 
+  position:relative;
+  top:10;
   padding:0px !important;
   margin:0px !important;
 }
@@ -234,7 +235,7 @@ input:not(:focus):valid ~ .floating-label{
 
 textarea:focus ~ .floating-label2,
 textarea:not(:focus):valid ~ .floating-label2{
-  top:-300px !important;
+  top:-275px !important;
   font-size: 20px;
   opacity: 1;
   color:#722872;
