@@ -209,7 +209,7 @@ input:not(:focus):valid ~ .floating-label{
   display:flex;
   border:none;
   border-bottom: 3px solid #BBB;
-  position:relative;
+ 
   padding:0px !important;
   margin:0px !important;
 }
